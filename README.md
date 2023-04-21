@@ -1,57 +1,59 @@
-# Spotify Arduino Controller
+# ESPotify
 
-This is a work-in-progress project for controlling Spotify playback using an Arduino and physical buttons. 
+## Description
 
-## Requirements
+ESPotify is a project for the intro to microcontrollers class that enables the user to control their Spotify playback and volume using physical buttons and a potentiometer. The system uses an ESP32 microcontroller and connects to the Spotify Web API.
 
-- ESP32
-- Spotify Premium account
-- Spotify Client ID and Client Secret
-- ArduinoJson library
-- SpotifyArduino library
+### Task(s) the system is designed to perform
 
+- Play and pause music
+- Skip to the next or previous track
+- Adjust volume using a potentiometer
+
+### Hardware
+
+The following hardware was used in the project:
+
+- ESP32 microcontroller
+- Potentiometer
+- Push buttons (play, pause, next, previous)
+- Breadboard
+- Jumper Wires
+
+| Component  | GPIO Pin |
+| ------------- | ------------- |
+| Potentiometer  | '36' |
+| Play Button | '18'  |
+| Pause Button | '19'  |
+| Next Button | '21'  |
+| Previous Button | '22'  |
 ## Installation
 
-1. Install the necessary libraries:
-
-   - `WiFi.h`
-   - `WiFiClientSecure.h`
-   - `SpotifyArduino.h`
-   - `SpotifyArduinoCert.h`
-   - `ArduinoJson.h`
-
-2. Connect the physical buttons and potentiometer to the Arduino board:
-
-   - `playButtonPin`
-   - `pauseButtonPin`
-   - `nextButtonPin`
-   - `previousButtonPin`
-   - `potPin`
-
-3. Update `config.h` with your network and Spotify credentials:
-
-   - `WIFI_SSID`
-   - `WIFI_PASSWORD`
-   - `SPOTIFY_CLIENT_ID`
-   - `SPOTIFY_CLIENT_SECRET`
-   - `SPOTIFY_REFRESH_TOKEN`
-
-4. Upload the sketch to your Arduino board and open the Serial Monitor.
-
-5. Verify that you are connected to the WiFi network and that the Access Tokens have been refreshed.
-
-6. Control your Spotify playback with the physical buttons and potentiometer.
+1. Clone the repository to your local machine.
+2. Open the ESPotify.ino file in the Arduino IDE.
+3. Install the following libraries:
+    - WiFi
+    - WiFiClientSecure
+    - SpotifyArduino
+    - ArduinoJson
+4. Modify the following lines in the config.h file to match your Spotify credentials and WiFi network:
+    ```
+    #define WIFI_SSID "Your WiFi SSID"
+    #define WIFI_PASSWORD "Your WiFi password"
+    #define SPOTIFY_CLIENT_ID "Your Spotify client ID"
+    #define SPOTIFY_CLIENT_SECRET "Your Spotify client secret"
+    #define SPOTIFY_REFRESHER_TOKEN "Your Spotify refresh token"
+    ```
+5. Upload the code to your ESP32 microcontroller.
 
 ## Usage
 
-The physical buttons and potentiometer control the following Spotify actions:
+1. Connect your ESP32 to power and wait for it to connect to your WiFi network.
+2. Use the physical buttons to control your Spotify playback and the potentiometer to adjust the volume.
 
-- `play()`: Play the current track
-- `pause()`: Pause the current track
-- `nextTrack()`: Skip to the next track
-- `previousTrack()`: Skip to the previous track
-- `setVolume()`: Set the volume level of the Spotify player using the potentiometer
+## Credits
 
-## License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE.md) file for details.
+- [SpotifyArduino library](https://github.com/witnessmenow/spotify-api-arduino)
+- [ArduinoJson library](https://github.com/bblanchon/ArduinoJson)
+- [WiFi library](https://github.com/espressif/arduino-esp32/blob/master/libraries/WiFi/src/WiFi.h)
+- [WiFi Client Secure library](https://github.com/espressif/arduino-esp32/tree/master/libraries/WiFiClientSecure)
