@@ -1,3 +1,8 @@
+//ESPotify
+//Ethan Waldo
+//4/21/2023
+
+
 // Libraries
 #include <WiFi.h>
 #include <WiFiClientSecure.h>
@@ -28,7 +33,7 @@ int previousButtonPin = 22;
 
 // Debouncing
 unsigned long lastDebounceTime = 0;
-unsigned long debounceDelay = 50;
+unsigned long debounceDelay = 20;
 
 WiFiClientSecure client;
 SpotifyArduino spotify(client, clientId, clientSecret, SPOTIFY_REFRESH_TOKEN);
