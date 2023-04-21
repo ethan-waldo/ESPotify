@@ -1,2 +1,4 @@
 # Ignore the config.h file
 config.h
+.vscode
+```
