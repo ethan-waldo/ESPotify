@@ -36,8 +36,9 @@ The following hardware was used in the project:
     - WiFiClientSecure
     - SpotifyArduino
     - ArduinoJson
-4. Follow the instuctions in the [getRefreshToken example](https://github.com/witnessmenow/spotify-api-arduino/blob/main/examples/getRefreshToken/getRefreshToken.ino) of the [SpotifyArduino library](https://github.com/witnessmenow/spotify-api-arduino) to obtain your Spotify Refresh Token.
-5. Modify the following lines in the config.h file to match your Spotify API credentials and WiFi network:
+4. Log into the Spotify Developer Dashboard and create a new app.
+5. Follow the instuctions in the [getRefreshToken example](https://github.com/witnessmenow/spotify-api-arduino/blob/main/examples/getRefreshToken/getRefreshToken.ino) of the [SpotifyArduino library](https://github.com/witnessmenow/spotify-api-arduino) to obtain your Spotify Refresh Token.
+6. Modify the following lines in the config.h file to match your Spotify API credentials and WiFi network:
     ```
     #define WIFI_SSID "Your WiFi SSID"
     #define WIFI_PASSWORD "Your WiFi password"
@@ -45,7 +46,7 @@ The following hardware was used in the project:
     #define SPOTIFY_CLIENT_SECRET "Your Spotify client secret"
     #define SPOTIFY_REFRESHER_TOKEN "Your Spotify refresh token"
     ```
-6. Upload the code to your ESP32 microcontroller.
+7. Upload the code to your ESP32 microcontroller.
 
 ## Usage
 
