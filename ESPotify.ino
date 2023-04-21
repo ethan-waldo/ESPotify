@@ -37,6 +37,9 @@ void setup() {
   Serial.begin(115200);
 
   pinMode(playButtonPin, INPUT_PULLUP);
+  pinMode(pauseButtonPin, INPUT_PULLUP);
+  pinMode(nextButtonPin, INPUT_PULLUP);
+  pinMode(previousButtonPin, INPUT_PULLUP);
 
   WiFi.mode(WIFI_STA);
   WiFi.begin(ssid, password);
@@ -134,4 +137,5 @@ void loop() {
   pauseButtonPressed(pauseButtonPin);
   nextButtonPressed(nextButtonPin);
   previousButtonPressed(previousButtonPin);
+  delay(100);
 }
