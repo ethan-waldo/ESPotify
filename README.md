@@ -22,11 +22,11 @@ The following hardware was used in the project:
 
 | Component  | GPIO Pin |
 | ------------- | ------------- |
-| Potentiometer  | '36' |
-| Play Button | '18'  |
-| Pause Button | '19'  |
-| Next Button | '21'  |
-| Previous Button | '22'  |
+| Potentiometer  | `36` |
+| Play Button | `18`  |
+| Pause Button | `19`  |
+| Next Button | `21`  |
+| Previous Button | `22`  |
 ## Installation
 
 1. Clone the repository to your local machine.
