@@ -21,10 +21,10 @@ char clientSecret[] = SPOTIFY_CLIENT_SECRET; // My client Secret for Spotify
 
 // Hardware Definitions
 int potPin = 36;
-int playButtonPin = 39;
-int pauseButtonPin = 34;
-int nextButtonPin = 35;
-int previousButtonPin = 33;
+int playButtonPin = 18;
+int pauseButtonPin = 19;
+int nextButtonPin = 21;
+int previousButtonPin = 22;
 
 // Debouncing
 unsigned long lastDebounceTime = 0;
@@ -59,9 +59,6 @@ void setup() {
 
   // Handle HTTPS Verification
   client.setCACert(spotify_server_cert);
-
-  // If you want to enable some extra debugging
-  // uncomment the "#define SPOTIFY_DEBUG" in SpotifyArduino.h
 
   Serial.println("Refreshing Access Tokens");
   if (!spotify.refreshAccessToken())
@@ -137,5 +134,4 @@ void loop() {
   pauseButtonPressed(pauseButtonPin);
   nextButtonPressed(nextButtonPin);
   previousButtonPressed(previousButtonPin);
-  delay(100);
 }
