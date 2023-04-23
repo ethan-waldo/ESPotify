@@ -33,7 +33,7 @@ int previousButtonPin = 22;
 
 // Debouncing
 unsigned long lastDebounceTime = 0;
-unsigned long debounceDelay = 20;
+unsigned long debounceDelay = 50;
 
 WiFiClientSecure client;
 SpotifyArduino spotify(client, clientId, clientSecret, SPOTIFY_REFRESH_TOKEN);
@@ -77,18 +77,27 @@ void setSpotifyVolumeWithPot(int potPin)
   // Read the potentiometer value
   int potValue = analogRead(potPin);
 
-  // Map the potentiometer value to a volume level between 0 and 100
-  int volume = map(potValue, 0, 4095, 0, 100);
+  static int prevPotValue = -1; // initialize to -1 so first value will always be sent
 
-  // Set the volume on the Spotify player
-  if (spotify.setVolume(volume))
-  {
-      Serial.print("Spotify volume set to ");
-      Serial.println(volume);
-  }
-  else
-  {
-      Serial.println("Failed to set Spotify volume");
+  // Check if the potentiometer value has changed
+  if (abs(potValue - prevPotValue) >= 100) {
+    // Map the potentiometer value to a volume level between 0 and 100
+    int volume = map(potValue, 0, 4095, 0, 100);
+
+    // Set the volume on the Spotify player
+    if (spotify.setVolume(volume))
+    {
+        Serial.print("Spotify volume set to ");
+        Serial.println(volume);
+    }
+    else
+    {
+        Serial.println("Failed to set Spotify volume");
+        Serial.println(potValue);
+        Serial.println(prevPotValue);
+    }
+
+    prevPotValue = potValue;
   }
 }
 
