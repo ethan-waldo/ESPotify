@@ -80,7 +80,7 @@ void setSpotifyVolumeWithPot(int potPin)
   static int prevPotValue = -1; // initialize to -1 so first value will always be sent
 
   // Check if the potentiometer value has changed
-  if (abs(potValue - prevPotValue) >= 100) {
+  if (abs(potValue - prevPotValue) >= 200) {
     // Map the potentiometer value to a volume level between 0 and 100
     int volume = map(potValue, 0, 4095, 0, 100);
 
